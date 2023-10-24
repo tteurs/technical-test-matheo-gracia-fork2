@@ -12,7 +12,10 @@ gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
 gem 'redis', '~> 4.0'
+#better handle os Views
 gem "scenic"
+#allows cross domain calls
+gem 'rack-cors'
 
 
 group :development, :test do
@@ -22,6 +25,7 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers', '~> 5.0'
+  #better debug interface
   gem 'pry'
 end
 
