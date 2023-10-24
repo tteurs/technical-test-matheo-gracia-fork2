@@ -112,6 +112,7 @@ GEM
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.4)
+    foreman (0.87.2)
     fuubar (2.5.1)
       rspec-core (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -282,6 +283,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   factory_bot_rails
   faker
+  foreman
   fuubar
   grape
   httparty

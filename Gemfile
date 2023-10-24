@@ -17,6 +17,8 @@ gem "scenic"
 #allows cross domain calls
 gem 'rack-cors'
 
+# manage rails and react application start
+gem "foreman"
 
 group :development, :test do
   gem 'awesome_print'
