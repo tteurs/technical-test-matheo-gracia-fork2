@@ -83,7 +83,7 @@ movies_data = [
     "plot": "A thrilling mystery with unexpected twists."
   },
   {
-    "title": Faker::Movie.title",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 15 minutes",
     "genre": "Fantasy",
