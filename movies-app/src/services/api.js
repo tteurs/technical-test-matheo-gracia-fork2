@@ -13,11 +13,15 @@ const STATS_ENDPOINTS = {
 
 const getMovies = () => api.get('/movies');
 const getMovie = (id) => api.get(`/movies/${id}`);
+const addMovie = (data) => api.post('/movies', data);
+const deleteMovie = (id) => api.delete(`/movies/${id}`);
 const getStats = (endpoint) => api.get(endpoint);
 
 export {
   getMovies,
   getMovie,
   getStats,
+  addMovie,
+  deleteMovie,
   STATS_ENDPOINTS,
 };

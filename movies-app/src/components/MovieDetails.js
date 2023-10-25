@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getMovie } from '../services/api';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getMovie, deleteMovie } from '../services/api';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    try {
+      await deleteMovie(id);
+      navigate('/');
+    } catch (error) {
+      console.error('Error deleting the movie', error);
+    }
+  };
 
   useEffect(() => {
     getMovie(id)
       .then((response) => {
+        console.log('Fetched movie data:', response.data);
         setMovie(response.data);
       })
       .catch((error) => {
@@ -28,6 +39,8 @@ const MovieDetails = () => {
       <p>Runtime: {movie.runtime}</p>
       <p>Parental Rating: {movie.parental_rating}</p>
       <p>Plot: {movie.plot}</p>
+      <br />
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };

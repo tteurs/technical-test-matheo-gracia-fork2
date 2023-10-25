@@ -74,7 +74,7 @@ const MovieList = () => {
   return (
     <div>
       <h1>Movies and statistics</h1>
-      {/* Display the statistics as complementary information */}
+      <Link to="/add-movie">Add a New Movie</Link>
       {highestRatedMovies && (
         <div>
           <h2>Highest rated movies by Genre and Parental Rating</h2>
