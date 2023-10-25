@@ -31,7 +31,7 @@ $ RAILS_ENV=test rails db:migrate
 
 after this just run the following to star the API and the Frontend application.
 
-$ foreman start
+$ bundle exec foreman start
 
 to run tests you need to run the following
 
