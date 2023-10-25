@@ -29,36 +29,11 @@ if you want to run tests you wil need to run the following
 $ rails db:test:prepare
 $ RAILS_ENV=test rails db:migrate
 
-after this just run the following to star the APi and the Frontend application.
+after this just run the following to star the API and the Frontend application.
 
 $ foreman start
 
+to run tests you need to run the following
 
-### GET /movies
-List all movies on a reverse chronological order.
+$ rspec spec
 
-Data from the movie that should be shown:
-- title
-- release_date
-- genre
-- runtime
-- parental_rating
-- plot
-- average user ratings (from 1 to 5)
-
-### GET /movies/:id
-Return information about a particular movie.
-
-### GET /movies/search?title=
-Search all movies on the database given a searched term.
-
-### POST /movies
-Add a new movie.
-
-### DELETE /movies/:id
-Remove a movie.
-
-### POST /ratings/:movie_id
-Rate a movie.
-
-WARNING: This is a fictional piece of work. No real codebases were harmed on the production of this test.
