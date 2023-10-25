@@ -88,12 +88,18 @@ const MovieList = () => {
         </div>
       )}
 
-      {yearWithMostMovies && (
+      {yearWithMostMovies && yearWithMostMovies.length > 0 ? (
         <div>
           <h2>Year with Most Movies</h2>
-          <p>{parseInt(yearWithMostMovies[0].release_year, 10)}: {yearWithMostMovies[0].movie_count} </p>
+          <p>{yearWithMostMovies[0].release_year}</p>
+        </div>
+      ) : (
+        <div>
+          <h2>Year with Most Movies</h2>
+          <p>No data available</p>
         </div>
       )}
+
 
       {movingAverageRatings && (
         <div>
