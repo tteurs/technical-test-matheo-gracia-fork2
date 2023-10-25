@@ -8,19 +8,10 @@
 
 
 puts "… Seeding data …"
-# Create 5 movies to add to DB
-# 5.times { Movie.create(title: Faker::Movie.title,
-#                         release_date: Faker::Date.between(from: 2.years.ago, to: Date.today),
-#                         genre: Faker::Gender.type ,
-#                         runtime: '2hours' ,
-#                         parental_rating: 'PG13',
-#                         plot: Faker::Lorem.sentence
-# ) }
-
 
 movies_data = [
   {
-    "title": "Movie 1",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours",
     "genre": "Action",
@@ -28,7 +19,7 @@ movies_data = [
     "plot": "An exciting action movie."
   },
   {
-    "title": "Movie 2",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "1 hour 45 minutes",
     "genre": "Comedy",
@@ -36,7 +27,7 @@ movies_data = [
     "plot": "A hilarious comedy for all ages."
   },
   {
-    "title": "Movie 3",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 15 minutes",
     "genre": "Drama",
@@ -44,7 +35,7 @@ movies_data = [
     "plot": "A gripping drama with intense performances."
   },
   {
-    "title": "Movie 4",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 30 minutes",
     "genre": "Sci-Fi",
@@ -52,7 +43,7 @@ movies_data = [
     "plot": "A mind-bending science fiction adventure."
   },
   {
-    "title": "Movie 5",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "1 hour 50 minutes",
     "genre": "Horror",
@@ -60,7 +51,7 @@ movies_data = [
     "plot": "A spine-chilling horror flick."
   },
   {
-    "title": "Movie 6",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 10 minutes",
     "genre": "Romance",
@@ -68,7 +59,7 @@ movies_data = [
     "plot": "A heartwarming romantic story."
   },
   {
-    "title": "Movie 7",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours",
     "genre": "Adventure",
@@ -76,7 +67,7 @@ movies_data = [
     "plot": "An epic adventure for all ages."
   },
   {
-    "title": "Movie 8",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "1 hour 45 minutes",
     "genre": "Animation",
@@ -84,7 +75,7 @@ movies_data = [
     "plot": "A fun animated film for kids."
   },
   {
-    "title": "Movie 9",
+    "title": Faker::Movie.title,
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 20 minutes",
     "genre": "Mystery",
@@ -92,7 +83,7 @@ movies_data = [
     "plot": "A thrilling mystery with unexpected twists."
   },
   {
-    "title": "Movie 10",
+    "title": Faker::Movie.title",
     "release_date": Faker::Date.between(from: 2.years.ago, to: Date.today),
     "runtime": "2 hours 15 minutes",
     "genre": "Fantasy",
