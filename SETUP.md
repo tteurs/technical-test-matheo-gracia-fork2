@@ -3,7 +3,6 @@
 
 - API written in Ruby on Rails and All endpoints return JSON
 - UI written in React
-  ther is a verios os the runin on this link:
 
 
 ## Rails API
