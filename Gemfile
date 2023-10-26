@@ -29,6 +29,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 5.0'
   #better debug interface
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do

@@ -20,10 +20,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
-  port: 5432
-  username: postgres
-  password: postgres
+  port: <%= ENV['DATABASE_PORT'] || '5432' %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  timeout: 5000
 
 development:
   <<: *default
@@ -86,5 +88,4 @@ test:
 production:
   <<: *default
   database: nextflix_production
-  username: nextflix
-  password: <%= ENV['NEXTFLIX_DATABASE_PASSWORD'] %>
+
