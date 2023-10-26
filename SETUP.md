@@ -40,6 +40,6 @@ $ rspec spec
 
 you can run it with the following command
 
-$ docker compose up -d
+$ docker-compose up -d
 
 $ docker-compose run api rails db:migrate
