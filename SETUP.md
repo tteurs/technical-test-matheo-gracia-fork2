@@ -42,6 +42,8 @@ you can run it with the following command
 
 $ docker-compose up -d
 
+$ docker-compose run --rm api bin/rails db:create
+
 $ docker-compose run --rm api bin/rails db:migrate
 
 $ docker-compose run --rm api bin/rails db:seed

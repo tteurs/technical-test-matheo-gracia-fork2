@@ -9,8 +9,8 @@ services:
       - ./movies-app/src:/src
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV="development"
+    # environment:
+    #   - NODE_ENV=development
 
   api:
     container_name: movies-app-api
@@ -27,7 +27,7 @@ services:
       - DATABASE_URL=postgres://root:password@postgres-db/
       - DATABASE_USER=root
       - DATABASE_PASSWORD=password
-      - RAILS_ENV="development"
+      # - RAILS_ENV=development
     depends_on:
       postgres-db:
         condition: service_healthy
