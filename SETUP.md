@@ -36,3 +36,10 @@ to run tests you need to run the following
 
 $ rspec spec
 
+## running on docker
+
+you can run it with the following command
+
+$ docker compose up -d
+
+$ docker-compose run api rails db:migrate
