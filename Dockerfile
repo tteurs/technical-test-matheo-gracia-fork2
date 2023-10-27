@@ -7,10 +7,10 @@ FROM ruby:$RUBY_VERSION-slim as base
 # Rails app lives here
 WORKDIR /rails
 
-# Set production environment
-ENV RAILS_ENV="production" \
-    BUNDLE_WITHOUT="development:test" \
-    BUNDLE_DEPLOYMENT="1"
+# # Set production environment
+# ENV RAILS_ENV="production" \
+#     BUNDLE_WITHOUT="development:test" \
+#     BUNDLE_DEPLOYMENT="1"
 
 # Update gems and bundler
 RUN gem update --system --no-document && \
