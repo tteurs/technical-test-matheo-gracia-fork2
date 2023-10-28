@@ -30,6 +30,7 @@ group :development, :test do
   #better debug interface
   gem 'pry'
   gem 'dotenv-rails'
+  gem 'grape_on_rails_routes'
 end
 
 group :development do
