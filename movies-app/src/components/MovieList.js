@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getMovies, getStats, STATS_ENDPOINTS } from '../services/api';
 import { Link, useNavigate } from 'react-router-dom';
+import { Button, Card, Container, Row, Col , Table , CardBody, CardText, CardTitle, ListGroup} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -72,85 +75,88 @@ const MovieList = () => {
   };
 
   return (
-    <div>
+    <Container fluid>
+      <Row>
       <h1>Movies and statistics</h1>
-      <Link to="/add-movie">Add a New Movie</Link>
-      {highestRatedMovies && (
+        <Button variant="primary" as={Link} to="/add-movie">Add a New Movie</Button>
+
+        {highestRatedMovies && (
+          <div>
+            <h2>Highest rated movies by Genre and Parental Rating</h2>
+            <ul>
+              {highestRatedMovies.map((item, index) => (
+                <li key={index}>
+                  {item.genre} - {item.parental_rating}: {item.max_rating}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+      {yearWithMostMovies && yearWithMostMovies.length > 0 ? (
         <div>
-          <h2>Highest rated movies by Genre and Parental Rating</h2>
+          <h2>Year with Most Movies</h2>
+          <p>{yearWithMostMovies[0].release_year}</p>
+        </div>
+      ) : (
+        <div>
+          <h2>Year with Most Movies</h2>
+          <p>No data available</p>
+        </div>
+      )}
+
+
+        {movingAverageRatings && (
+          <div>
+            <h2>Moving Average Ratings</h2>
+            <ul>
+              {movingAverageRatings.map((item, index) => (
+                <li key={index}>
+                  {new Date(item.month).toLocaleDateString('en-US', { month: '2-digit' })}: {item.moving_average}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {totalMoviesByGenre && (
+          <div>
+            <h2>Total Movies by Genre</h2>
+            <ul>
+              {totalMoviesByGenre.map((item, index) => (
+                <li key={index}>
+                  {item.genre}: {item.movie_count}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {averageRatingByYear && (
+          <div>
+            <h2>Average Rating by Year</h2>
+            <ul>
+              {averageRatingByYear.map((item, index) => (
+                <li key={index}>
+                  {parseInt(item.release_year, 10)}: {parseFloat(item.moving_average).toFixed(2)}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <div>
+          <h2>Movies</h2>
           <ul>
-            {highestRatedMovies.map((item, index) => (
-              <li key={index}>
-                {item.genre} - {item.parental_rating}: {item.max_rating}
+            {movies.map((movie) => (
+              <li key={movie.id} onClick={() => handleMovieClick(movie.id)}>
+                {movie.title} - {movie.rating}
               </li>
             ))}
           </ul>
         </div>
-      )}
-
-    {yearWithMostMovies && yearWithMostMovies.length > 0 ? (
-      <div>
-        <h2>Year with Most Movies</h2>
-        <p>{yearWithMostMovies[0].release_year}</p>
-      </div>
-    ) : (
-      <div>
-        <h2>Year with Most Movies</h2>
-        <p>No data available</p>
-      </div>
-    )}
-
-
-      {movingAverageRatings && (
-        <div>
-          <h2>Moving Average Ratings</h2>
-          <ul>
-            {movingAverageRatings.map((item, index) => (
-              <li key={index}>
-                {new Date(item.month).toLocaleDateString('en-US', { month: '2-digit' })}: {item.moving_average}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {totalMoviesByGenre && (
-        <div>
-          <h2>Total Movies by Genre</h2>
-          <ul>
-            {totalMoviesByGenre.map((item, index) => (
-              <li key={index}>
-                {item.genre}: {item.movie_count}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {averageRatingByYear && (
-        <div>
-          <h2>Average Rating by Year</h2>
-          <ul>
-            {averageRatingByYear.map((item, index) => (
-              <li key={index}>
-                {parseInt(item.release_year, 10)}: {parseFloat(item.moving_average).toFixed(2)}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div>
-        <h2>Movies</h2>
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id} onClick={() => handleMovieClick(movie.id)}>
-              {movie.title}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
