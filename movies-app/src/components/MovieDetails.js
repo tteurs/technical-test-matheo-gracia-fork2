@@ -19,10 +19,10 @@ const MovieDetails = () => {
     }
   };
 
-  const handleRatingSubmit = async (rating) => {
+  const handleRatingSubmit = async (grade) => {
     try {
-      await rateMovie(id, rating);
-      setUserRating(rating);
+      await rateMovie(id, grade);
+      setUserRating(grade);
     } catch (error) {
       console.error('Error submitting movie rating', error);
     }
@@ -62,10 +62,10 @@ const MovieDetails = () => {
                 <div>
                   <p>Your Rating:</p>
                   <div>
-                  {[1, 2, 3, 4, 5].map((rating) => (
+                  {[1, 2, 3, 4, 5].map((grade) => (
                     <span
-                      key={rating}
-                      onClick={() => handleRatingSubmit(rating)}
+                      key={grade}
+                      onClick={() => handleRatingSubmit(grade)}
                     >
                       ★
                     </span>

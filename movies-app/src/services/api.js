@@ -17,8 +17,8 @@ const getMovie = (id) => api.get(`/movies/${id}`);
 const addMovie = (data) => api.post('/movies', data);
 const deleteMovie = (id) => api.delete(`/movies/${id}`);
 const getStats = (endpoint) => api.get(endpoint);
-const rateMovie = (movieId, rating) => {
-  return api.post(`/ratings/${movieId}`, { rating });
+const rateMovie = (movieId, grade) => {
+  return api.post(`/ratings/${movieId}`, { grade });
 };
 
 export {
