@@ -11,7 +11,7 @@ module Ratings
         requires :grade, type: Integer, desc: 'Movie grade.'
       end
 
-      post do
+      post '/:movie_id' do
         Rating.create!({
           movie_id: params[:movie_id],
           grade: params[:grade]
