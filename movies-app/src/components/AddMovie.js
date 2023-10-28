@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { addMovie } from '../services/api';
 import { Button, Card, CardTitle, Form, Container, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -64,6 +64,7 @@ const AddMovie = () => {
             </Form.Group>
             <br />
             <Form.Group>
+              <Button variant="secondary" as={Link} to="/">Back</Button>
               <Button variant="success" type="submit">Add Movie</Button>
             </Form.Group>
           </Form>
