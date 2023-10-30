@@ -68,6 +68,7 @@ const AddMovie = () => {
               <Button variant="success" type="submit">Add Movie</Button>
             </Form.Group>
           </Form>
+          <br />
         </Card>
       </Row>
     </Container>

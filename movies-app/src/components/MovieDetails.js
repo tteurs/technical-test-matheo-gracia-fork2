@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getMovie, deleteMovie, rateMovie } from '../services/api';
-import { Button, Card, CardBody, CardText, CardTitle, ListGroup, Container, Row} from 'react-bootstrap';
+import { Button, Card, CardBody, CardText, CardTitle, ListGroup, Container, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const MovieDetails = () => {
@@ -46,42 +46,44 @@ const MovieDetails = () => {
   return (
     <Container>
       <Row>
-        <Card>
-          <CardBody>
-            <CardTitle>{movie.title}</CardTitle>
-            <CardText>
-              <ListGroup>
-                <ListGroup.Item>Release Date: {movie.release_date}</ListGroup.Item>
-                <ListGroup.Item>Genre: {movie.genre}</ListGroup.Item>
-                <ListGroup.Item>Runtime: {movie.runtime}</ListGroup.Item>
-                <ListGroup.Item>Parental Rating: {movie.parental_rating}</ListGroup.Item>
-                <ListGroup.Item>Plot: {movie.plot}</ListGroup.Item>
-                <ListGroup.Item>Rating: {movie.rating}</ListGroup.Item>
+        <Col md>
+          <Card>
+            <CardBody>
+              <CardTitle>{movie.title}</CardTitle>
+              <CardText>
+                <ListGroup>
+                  <ListGroup.Item>Release Date: {movie.release_date}</ListGroup.Item>
+                  <ListGroup.Item>Genre: {movie.genre}</ListGroup.Item>
+                  <ListGroup.Item>Runtime: {movie.runtime}</ListGroup.Item>
+                  <ListGroup.Item>Parental Rating: {movie.parental_rating}</ListGroup.Item>
+                  <ListGroup.Item>Plot: {movie.plot}</ListGroup.Item>
+                  <ListGroup.Item>Rating: {movie.rating}</ListGroup.Item>
 
-              <ListGroup.Item>{userRating === null ? (
-                <div>
-                  <p>Your Rating:</p>
+                <ListGroup.Item>{userRating === null ? (
                   <div>
-                  {[1, 2, 3, 4, 5].map((grade) => (
-                    <span
-                      key={grade}
-                      onClick={() => handleRatingSubmit(grade)}
-                    >
-                      ★
-                    </span>
-                  ))}
+                    <p>Your Rating:</p>
+                    <div>
+                    {[1, 2, 3, 4, 5].map((grade) => (
+                      <span
+                        key={grade}
+                        onClick={() => handleRatingSubmit(grade)}
+                      >
+                        ★
+                      </span>
+                    ))}
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <p>Your Rating: {userRating} ★</p>
-              )}</ListGroup.Item>
-              </ListGroup>
-              <br />
-              <Button variant="secondary" as={Link} to="/">Back</Button>
-              <Button variant="danger" onClick={handleDelete}>Delete</Button>
-            </CardText>
-          </CardBody>
-        </Card>
+                ) : (
+                  <p>Your Rating: {userRating} ★</p>
+                )}</ListGroup.Item>
+                </ListGroup>
+                <br />
+                <Button variant="secondary" as={Link} to="/">Back</Button>
+                <Button variant="danger" onClick={handleDelete}>Delete</Button>
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
